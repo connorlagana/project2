@@ -1,68 +1,95 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# **sendit**
 
-## Available Scripts
+### Overview
+https://www.youtube.com/watch?v=WIrWyr3HgXI
 
-In the project directory, you can run:
+**sendit™** is a financial analysis website used to scroll news articles, favorite stocks, view news and data for specific stocks, and vote on news articles.  **sendit™** will be using two to three API's for these functionalities.
 
-### `npm start`
+<br>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Wireframes
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+![Desktop Landing](https://i.imgur.com/eqoIUwS.png)
 
-### `npm test`
+- Desktop Landing
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br>
 
-### `npm run build`
+![Desktop Hero](https://i.imgur.com/gSzNOJt.png)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Desktop Hero
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+<br>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Mobile Data Index](https://i.imgur.com/XpZs5T6.png)
 
-### `npm run eject`
+- Mobile Data Index
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<br>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+***
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<br>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### MVP
 
-## Learn More
+_The **sendit™** MVP is accessing a financial API and news API and sort them by Stock ticker associated with news.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Goals
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Utilize CSS
+- Learn advanced API's (possibly OAuth)
+- Upvotes
+- Sort posts by upvoted
 
-### Code Splitting
+#### Libraries
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+> Use this section to list all supporting libraries and their role in the project.
 
-### Analyzing the Bundle Size
+|     Library      | Description                                |
+| :--------------: | :----------------------------------------- |
+|   React Router   | Used to route with react|
+| Axios | Used for API calls |
+|   Font awesome   | No explanation needed |
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+#### API Data
 
-### Making a Progressive Web App
+> Use the Data Section to define the API(s) you will be consuming for your project, inluding sample URL queries.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+|    API     | Quality Docs? | Website       | Sample Query                            |
+| :--------: | :-----------: | :------------ | :-------------------------------------- |
+| Intrinio/StockNews |      yes      | https://intrinio.com |  |
 
-### Advanced Configuration
+#### React Components
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+_Component Hierarchy_
 
-### Deployment
+> Use this section to define your React components and the data architecture of your app.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+```
+src
+|__ assets/
+      |__ images
+      |__ mockups
+|__ components/
+      |__ Header.jsx
+      |__ Main.jsx
+      |__ Post.jsx
+      |__ Stock.jsx
+      |__ Fetch.jsx
+      |__ Footer.jsx
+```
 
-### `npm run build` fails to minify
+<br>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+***
+
+<br>
+
+### Post-MVP
+
+#### Post-MVP Goals
+
+- Sort posts by upvotes
+- different communites (subsends)
+- search for stocks
