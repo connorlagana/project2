@@ -14,32 +14,8 @@ class App extends Component {
 
     this.state = {
       dowStocks: [],
-      currentPage: 'dji',
-      chartData: {
-        labels: ['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New Bedford'],
-        datasets: [
-          {
-            label: 'Population',
-            data: [
-              617594,
-              181045,
-              153060,
-              106519,
-              105162,
-              95072
-            ],
-            backgroundColor: [
-              'rgba(255, 99, 132, 0.6)',
-              'rgba(54, 162, 235, 0.6)',
-              'rgba(255, 206, 86, 0.6)',
-              'rgba(75, 192, 192, 0.6)',
-              'rgba(153, 102, 255, 0.6)',
-              'rgba(255, 159, 64, 0.6)',
-              'rgba(255, 99, 132, 0.6)'
-            ]
-          }
-        ]
-      }
+      currentPage: 'dji'
+      // chartData: {}
     }
   }
 
@@ -51,6 +27,7 @@ class App extends Component {
     for (let i = 0; i < dowTickers.length; i++) {
       let res = await axios.get(`https://api-v2.intrinio.com/securities/${dowTickers[i]}?api_key=OmQzMTBkZjhhNjRhOGM2OTI3MGI1MWUzNzE2ODJlMzY2`)
       let dataRes = await axios.get(`https://api-v2.intrinio.com/securities/${dowTickers[i]}/prices?frequency=monthly&api_key=OmQzMTBkZjhhNjRhOGM2OTI3MGI1MWUzNzE2ODJlMzY2`)
+      let ratingRes = await axios.get(`https://api-v2.intrinio.com/securities/${dowTickers[i]}/zacks/analyst_ratings/snapshot?api_key=OmQzMTBkZjhhNjRhOGM2OTI3MGI1MWUzNzE2ODJlMzY2`)
 
       let chartData = dataRes.data.stock_prices
       let histPrices = []
@@ -60,18 +37,22 @@ class App extends Component {
         histPrices.push(chartData[i].adj_close)
         dates.push(chartData[i].date)
       }
-      let dataObj = {
-        datasets: {
-          label: "Prices",
-          data: histPrices
-        },
-        labels: dates
-      }
 
       let tickerNameObj = {
         ticker: dowTickers[i],
         name: res.data.name,
-        chartData: dataObj
+        chartData: {
+          labels: dates.reverse(),
+          datasets: [
+            {
+              label: dowTickers[i],
+              data: histPrices.reverse(),
+              backgroundColor: [
+                'rgba(231, 96, 56, 1)',
+              ]
+            }
+          ]
+        }
       }
 
       this.setState(prev => ({
@@ -94,6 +75,7 @@ class App extends Component {
         <Route exact path="/" render={(props) =>
           <Stocks
             stocks={this.state.dowStocks}
+            chartData={this.state.chartData}
           />
         } />
         <Route path='/:ticker' render={(props) => {

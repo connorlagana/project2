@@ -10,15 +10,17 @@ function Stocks(props) {
           <div className="stock" key={key}>
             <Link to={`/${stock.ticker}`}>
               <h3 id="name">{stock.name}</h3>
+
             </Link>
+            {/* <p>{stock.chartData.datasets.label}</p> */}
             <Line
               data={stock.chartData}
             />
-            
+
           </div>
         )
-
       }
+
     </div>
   )
 }
