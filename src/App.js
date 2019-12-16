@@ -6,6 +6,7 @@ import Footer from './components/Footer'
 import StockPage from './components/StockPage'
 import { Route } from 'react-router-dom'
 import Stocks from './components/Stocks'
+import { Bar, Line, Pie } from 'react-chartjs-2'
 
 class App extends Component {
   constructor(props) {
@@ -13,20 +14,13 @@ class App extends Component {
 
     this.state = {
       dowStocks: [],
-      currentPage: 'all',
-      chartData: {}
-    }
-  }
-
-  getChartData(){
-    // Ajax calls here
-    this.setState({
-      chartData:{
+      currentPage: 'dji',
+      chartData: {
         labels: ['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New Bedford'],
-        datasets:[
+        datasets: [
           {
-            label:'Population',
-            data:[
+            label: 'Population',
+            data: [
               617594,
               181045,
               153060,
@@ -34,7 +28,7 @@ class App extends Component {
               105162,
               95072
             ],
-            backgroundColor:[
+            backgroundColor: [
               'rgba(255, 99, 132, 0.6)',
               'rgba(54, 162, 235, 0.6)',
               'rgba(255, 206, 86, 0.6)',
@@ -46,7 +40,7 @@ class App extends Component {
           }
         ]
       }
-    });
+    }
   }
 
   async findCompanies() {
