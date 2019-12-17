@@ -24,3 +24,22 @@ header {
   justify-content: flex-end;
 }
 
+#lineGraph {
+  /* padding: 100px; */
+}
+
+#optionsButton {
+  color: green;
+  text-decoration: none;
+  border-style: solid;
+  font-size: 10;
+  width: 200px;
+  height: 60px;
+  text-align: center;
+  vertical-align:middle;
+  display:table-cell;
+  border-radius: 5px;
+}
+#optionsButton :hover {
+  color: red;
+}

@@ -6,7 +6,6 @@ import Footer from './components/Footer'
 import StockPage from './components/StockPage'
 import { Route } from 'react-router-dom'
 import Stocks from './components/Stocks'
-import { Bar, Line, Pie } from 'react-chartjs-2'
 
 class App extends Component {
   constructor(props) {
@@ -15,13 +14,12 @@ class App extends Component {
     this.state = {
       dowStocks: [],
       currentPage: 'dji'
-      // chartData: {}
     }
   }
 
   async findCompanies() {
     let dowTickers = ['MMM', 'AXP', 'AAPL', 'BA', 'CAT', 'CVX', 'CSCO',
-      'XOM', 'GS', 'IBM', 'INTC', 'JNJ', 'JPM', 'MCD', 'MRK', 'MSFT', 'NKE',
+      'XOM', 'GS', 'IBM', 'INTC', 'JNJ', 'MCD', 'MRK', 'MSFT', 'NKE',
       'PFE', 'PG', 'KO', 'HD', 'TRV', 'DIS', 'UTX', 'UNH', 'VZ', 'V',
       'WMT']
     for (let i = 0; i < dowTickers.length; i++) {
@@ -38,9 +36,35 @@ class App extends Component {
         dates.push(chartData[i].date)
       }
 
+      let analLabels = ["Strong Buy", "Buy", "Hold", "Sell", "Strong Sell"]
+      let actAnal = [
+        ratingRes.data.snapshots[0].strong_buys,
+        ratingRes.data.snapshots[0].buys,
+        ratingRes.data.snapshots[0].holds,
+        ratingRes.data.snapshots[0].strong_sells,
+        ratingRes.data.snapshots[0].strong_sells
+      ]
+
+
       let tickerNameObj = {
         ticker: dowTickers[i],
         name: res.data.name,
+        anal: {
+          labels: analLabels,
+          datasets: [
+            {
+              label: "Title Here",
+              data: actAnal,
+              backgroundColor: [
+                'rgb(0, 163, 55)',
+                'rgb(128, 254, 109)',
+                'rgb(255, 228, 51)',
+                'rgb(255, 114, 107)',
+                'rgb(255, 54, 54)',
+              ]
+            }
+          ]
+        },
         chartData: {
           labels: dates.reverse(),
           datasets: [
@@ -59,7 +83,6 @@ class App extends Component {
         dowStocks: [...prev.dowStocks, tickerNameObj]
       }))
 
-      console.log(this.state.dowStocks)
     }
   }
 
@@ -70,7 +93,6 @@ class App extends Component {
   render() {
     return (
       <div className="App" >
-        {/* <img src={logo} /> */}
         <Header />
         <Route exact path="/" render={(props) =>
           <Stocks

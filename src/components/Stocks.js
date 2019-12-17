@@ -12,9 +12,14 @@ function Stocks(props) {
               <h3 id="name">{stock.name}</h3>
 
             </Link>
-            {/* <p>{stock.chartData.datasets.label}</p> */}
-            <Line
+            <Line id="lineGraph"
               data={stock.chartData}
+              height={100}
+              width={400}
+            />
+            <Pie
+              data={stock.anal}
+              height={50}
             />
 
           </div>
