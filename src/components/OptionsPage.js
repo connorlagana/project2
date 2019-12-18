@@ -12,7 +12,8 @@ class OptionsPage extends Component {
       expirations: ["2019-12-20", "2019-12-27"],
       calls: [],
       toggleExp: false,
-      currentExp: "2019-12-20"
+      currentExp: "2019-12-20",
+      currentStrike: ""
     }
 
   }
@@ -20,6 +21,15 @@ class OptionsPage extends Component {
   async componentDidMount() {
 
     this.fetchOptions()
+  }
+
+  changeExp = (event) => {
+    event.preventDefault()
+
+    this.setState({
+      currentExp: event.target.name
+    })
+
   }
 
   changeExp = (event) => {

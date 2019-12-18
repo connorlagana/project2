@@ -8,7 +8,9 @@ function Option(props) {
       <button onClick={props.showOptions}>
         Expires: {props.currentExp}
       </button>
-
+      <button onClick={props.showOptions}>
+        Strike: {props.currentStrike}
+      </button>
 
       {
         props.calls.map((callArr, key) =>
@@ -16,7 +18,7 @@ function Option(props) {
             {
               props.toggleExp
                 ? (
-                  <div className="menu">
+                  <div className="expMenu">
                     <button
                       id="exp"
                       onClick={props.changeExp}

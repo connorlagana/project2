@@ -45,5 +45,12 @@ header {
 }
 
 #exp {
-  
+  border: solid;
+  border-width: 1px;
+  border-color: rgb(107, 214, 107);
+  color: rgb(107, 214, 107);
+  background-color: white;
+  border-radius: 4px;
+  font-size: 20px;
+  cursor: pointer;
 }
