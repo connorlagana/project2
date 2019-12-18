@@ -10,13 +10,33 @@ class OptionsPage extends Component {
     this.state = {
       ticker: "MSFT",
       expirations: ["2019-12-20", "2019-12-27"],
-      calls: []
+      calls: [],
+      toggleExp: false,
+      currentExp: "2019-12-20"
     }
+
   }
 
   async componentDidMount() {
 
     this.fetchOptions()
+  }
+
+  changeExp = (event) => {
+    event.preventDefault()
+
+    this.setState({
+      currentExp: event.target.name
+    })
+
+  }
+
+  showOptions = (event) => {
+    event.preventDefault()
+
+    this.setState({
+      toggleExp: !this.state.toggleExp,
+    })
   }
 
   async fetchOptions() {
@@ -29,8 +49,10 @@ class OptionsPage extends Component {
       let callsOnly = callsRes.data.options
       callsOnly.sort((a, b) => (a.strike > b.strike) ? 1 : -1)
 
+      //not uesed yet
       let callsObj = {
-        exp: this.state.expirations[i]
+        exp: this.state.expirations[i],
+        calls: callsOnly
       }
 
       // for (let j = 0; j < callsOnly.length; j++) {
@@ -81,7 +103,12 @@ class OptionsPage extends Component {
       <div>
         <p>Options page for {this.state.ticker} goes here</p>
         <Option
-          calls={this.state.calls} />
+          calls={this.state.calls}
+          toggleExp={this.state.toggleExp}
+          showOptions={this.showOptions}
+          currentExp={this.state.currentExp}
+          changeExp={this.changeExp}
+        />
       </div >
     )
   }

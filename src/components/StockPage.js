@@ -46,11 +46,11 @@ class StockPage extends Component {
     return (
       <div>
         <h2>Stock Page</h2>
+
         <p>Ticker: {this.state.ticker} ${this.state.price}</p>
         <p>Sector: {this.state.sector}</p>
         <p>CEO: {this.state.ceo}</p>
-        <p>Short: {this.state.shortDesc}</p>
-        <p>Long: {this.state.longDesc}</p>
+
         <Route exact path="/:ticker" render={(props) =>
           <Link to={`/${this.state.ticker}/options`}>
             <h3 id="optionsButton">View Options</h3>
@@ -64,6 +64,10 @@ class StockPage extends Component {
             />
           )
         }} />
+
+        <p>Short: {this.state.shortDesc}</p>
+        <p>Long: {this.state.longDesc}</p>
+
 
       </div >
     )
