@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Route } from 'react-router-dom'
-import Option from './Option'
 
 class OptionsPage extends Component {
   constructor(props) {

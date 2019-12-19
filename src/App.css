@@ -25,6 +25,58 @@ header {
 }
 
 #lineGraph {
-  /* padding: 100px; */
+  
 }
 
+#sector {
+  display: flex;
+  padding-left: 300px;
+  color: rgb(100, 100, 100);
+}
+
+#ticker {
+  display: inline-block;
+  font-weight: 700;
+  padding-left: 300px;
+}
+#name {
+  display: inline-block;
+  font-weight: 300;
+  padding-left: 30px;
+}
+#price {
+  display: inline-block;
+  font-weight: 700;
+  padding-left: 30px;
+}
+
+#change {
+  display: inline-block;
+  font-weight: 300;
+  padding-left: 30px;
+}
+
+#desc {
+  font-weight: 300;
+  padding-left: 200px;
+  padding-right: 200px;
+}
+
+.nav li {
+  display: flex;
+  justify-content: center;
+  width: 60px;
+  cursor: pointer;
+  border-radius: 5px
+}
+.nav ul :hover {
+  background-color: rgb(190, 190, 190);
+}
+
+.nav ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+}
