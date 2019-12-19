@@ -48,8 +48,8 @@ class StockPage extends Component {
         <p id='ticker'>{this.state.ticker}</p>
         <p id='name'>{this.state.name}</p>
         <p id='price'>${this.state.price}</p>
-        <p>Sector: {this.state.sector}</p>
-        <p>CEO: {this.state.ceo}</p>
+        <p id='sector'>{this.state.sector}</p>
+        <p id='ceo'>{this.state.ceo}</p>
 
         <Route exact path="/:ticker" render={(props) =>
           <Link to={`/${this.state.ticker}/options`}>
