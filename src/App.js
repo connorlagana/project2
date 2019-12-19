@@ -22,21 +22,6 @@ class App extends Component {
     }
   }
 
-  handleFilterChange = (event) => {
-    const filterValue = event.target.value
-    this.setState((prevState, props) => {
-      const filteredFruitList = this.state.dowTickers.filter(tick =>
-        tick.toLocaleUpperCase().includes(filterValue.toLocaleUpperCase()))
-      return {
-        dowTickers: filteredFruitList,
-        filterValue,
-      }
-    })
-
-    
-
-  }
-
   async findCompanies() {
     let dowTickers = this.state.dowTickers
     for (let i = 0; i < dowTickers.length; i++) {
