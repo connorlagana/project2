@@ -13,15 +13,31 @@ class App extends Component {
 
     this.state = {
       dowStocks: [],
-      currentPage: 'dji'
-    }
-  }
-
-  async findCompanies() {
-    let dowTickers = ['MMM', 'AXP', 'AAPL', 'BA', 'CAT', 'CVX', 'CSCO',
+      currentPage: 'dji',
+      dowTickers: ['MMM', 'AXP', 'AAPL', 'BA', 'CAT', 'CVX', 'CSCO',
       'XOM', 'GS', 'IBM', 'INTC', 'JNJ', 'MCD', 'MRK', 'MSFT', 'NKE',
       'PFE', 'PG', 'KO', 'HD', 'TRV', 'DIS', 'UTX', 'UNH', 'VZ', 'V',
       'WMT']
+    }
+  }
+
+  handleFilterChange = (event) => {
+    const filterValue = event.target.value
+    this.setState((prevState, props) => {
+      const filteredTickers = this.state.dowTickers(fruit =>
+        fruit.toLocaleLowerCase().includes(filterValue.toLocaleLowerCase()))
+      let otherFruityBoys = props.fruits.filter(fruit =>
+        !fruit.toLocaleLowerCase().includes(filterValue.toLocaleLowerCase()))
+      console.log(otherFruityBoys)
+      return {
+        fruitsToDisplay: filteredFruitList,
+        filterValue: filterValue
+      }
+    })
+  }
+
+  async findCompanies() {
+    let dowTickers = this.state.dowTickers
     for (let i = 0; i < dowTickers.length; i++) {
       let res = await axios.get(`https://api-v2.intrinio.com/securities/${dowTickers[i]}?api_key=OmQzMTBkZjhhNjRhOGM2OTI3MGI1MWUzNzE2ODJlMzY2`)
       let dataRes = await axios.get(`https://api-v2.intrinio.com/securities/${dowTickers[i]}/prices?frequency=monthly&api_key=OmQzMTBkZjhhNjRhOGM2OTI3MGI1MWUzNzE2ODJlMzY2`)
@@ -94,6 +110,10 @@ class App extends Component {
     return (
       <div className="App" >
         <Header />
+        <div class="container">
+          <input type="text" placeholder="Search..." />
+          <div class="search"></div>
+        </div>
         <Route exact path="/" render={(props) =>
           <Stocks
             stocks={this.state.dowStocks}
