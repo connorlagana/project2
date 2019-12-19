@@ -5,6 +5,14 @@ import { Bar, Line, Pie } from 'react-chartjs-2'
 function Stocks(props) {
   return (
     <div id="allStocksList">
+      {/* <div class="container">
+        <input
+          type="text"
+          placeholder="Search..."
+          onChange={props.handleFilterChange}
+        />
+        <div class="search"></div>
+      </div> */}
       {
         props.stocks.map((stock, key) =>
           <div className="stock" key={key}>

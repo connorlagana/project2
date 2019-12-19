@@ -24,18 +24,17 @@ class App extends Component {
 
   handleFilterChange = (event) => {
     const filterValue = event.target.value
-    let tickers = this.state.dowTickers
-    let newTickers = []
-
-    for (let i = 0; i < tickers.length; i++) {
-      if (tickers[i].includes(filterValue.toUpperCase())) {
-        newTickers.push(tickers[i])
+    this.setState((prevState, props) => {
+      const filteredFruitList = this.state.dowTickers.filter(tick =>
+        tick.toLocaleUpperCase().includes(filterValue.toLocaleUpperCase()))
+      return {
+        dowTickers: filteredFruitList,
+        filterValue,
       }
-    }
-    this.setState({
-      dowTickers: newTickers
     })
-    this.findCompanies()
+
+    
+
   }
 
   async findCompanies() {
@@ -112,6 +111,14 @@ class App extends Component {
     return (
       <div className="App" >
         <Header />
+        <div class="container">
+          <input
+            type="text"
+            placeholder="Search..."
+            onChange={this.handleFilterChange}
+          />
+          <div class="search"></div>
+        </div>
         <Route exact path="/" render={(props) =>
           <Stocks
             stocks={this.state.dowStocks}

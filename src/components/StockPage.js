@@ -134,7 +134,7 @@ class StockPage extends Component {
             />
           )
         }} />
-        <h3>About</h3>
+        <h3 id="about">About</h3>
         <p id='desc'>Short: {this.state.shortDesc}</p>
         <p id='desc'>Long: {this.state.longDesc}</p>
         <p>{this.state.buyRating}%</p>
