@@ -111,14 +111,14 @@ class App extends Component {
     return (
       <div className="App" >
         <Header />
-        <div class="container">
+        {/* <div class="container">
           <input
             type="text"
             placeholder="Search..."
             onChange={this.handleFilterChange}
           />
           <div class="search"></div>
-        </div>
+        </div> */}
         <Route exact path="/" render={(props) =>
           <Stocks
             stocks={this.state.dowStocks}
