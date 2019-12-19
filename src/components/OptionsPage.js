@@ -14,7 +14,7 @@ class OptionsPage extends Component {
       toggleExp: false,
       toggleStrike: false,
       currentExp: "2019-12-20",
-      currentStrike: ""
+      currentStrike: "Something"
     }
 
   }
@@ -51,10 +51,11 @@ class OptionsPage extends Component {
   }
   showStrikes = (event) => {
     event.preventDefault()
-
+    console.log(this.state.toggleStrike)
     this.setState({
       toggleStrike: !this.state.toggleStrike,
     })
+    console.log(this.state.toggleStrike)
   }
 
   async fetchOptions() {
@@ -120,17 +121,17 @@ class OptionsPage extends Component {
     return (
       <div>
         <p>Options page for {this.state.ticker} goes here</p>
-        <Option
+        {/* <Option
           calls={this.state.calls}
           toggleExp={this.state.toggleExp}
           toggleStrike={this.state.toggleStrike}
           showExp={this.showExp}
-          showStrike={this.showStrike}
+          showStrikes={this.showStrikes}
           currentExp={this.state.currentExp}
           currentStrike={this.state.currentStrike}
           changeExp={this.changeExp}
           changeStrike={this.changeStrike}
-        />
+        /> */}
       </div >
     )
   }

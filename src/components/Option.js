@@ -5,7 +5,10 @@ import { Bar, Line, Pie } from 'react-chartjs-2'
 function Option(props) {
   return (
     <div id="allOptionsList">
-      <button onClick={props.showExp}>
+      <button
+        onClick={props.showExp}
+        // onMouseLeave={props.showExp}
+      >
         Expires: {props.currentExp}
       </button>
       <button onClick={props.showStrikes}>
@@ -32,28 +35,28 @@ function Option(props) {
                   null
                 )
             }
-            {callArr.map((call, ind) =>
-              <div className="call" key={ind}>
-                {/* <h4>{call.strike}</h4> */}
-                {
-              props.toggleStrike
-                ? (
-                  <div className="strikeMenu">
-                    <button
-                      id="strike"
-                      onClick={props.changeStrike}
-                      name={call.strike}
-                    >
-                      {call.strike}
-                    </button>
-                  </div>
-                )
-                : (
-                  null
-                )
-            }
-              </div>
-            )}
+            {
+              callArr.map((call, ind) =>
+                <div className="call" key={ind}>
+                  {
+                    props.toggleStrike
+                      ? (
+                        <div className="strikeMenu">
+                          <button
+                            id="strike"
+                            onClick={props.changeStrike}
+                            name={call.strike}
+                          >
+                            {call.strike}
+                          </button>
+                        </div>
+                      )
+                      : (
+                        null
+                      )
+                  }
+                </div>
+              )}
           </div>
         )
       }
