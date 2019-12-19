@@ -6,6 +6,7 @@ import Footer from './components/Footer'
 import StockPage from './components/StockPage'
 import { Route } from 'react-router-dom'
 import Stocks from './components/Stocks'
+import { filter } from 'minimatch';
 
 class App extends Component {
   constructor(props) {
@@ -15,25 +16,26 @@ class App extends Component {
       dowStocks: [],
       currentPage: 'dji',
       dowTickers: ['MMM', 'AXP', 'AAPL', 'BA', 'CAT', 'CVX', 'CSCO',
-      'XOM', 'GS', 'IBM', 'INTC', 'JNJ', 'MCD', 'MRK', 'MSFT', 'NKE',
-      'PFE', 'PG', 'KO', 'HD', 'TRV', 'DIS', 'UTX', 'UNH', 'VZ', 'V',
-      'WMT']
+        'XOM', 'GS', 'IBM', 'INTC', 'JNJ', 'MCD', 'MRK', 'MSFT', 'NKE',
+        'PFE', 'PG', 'KO', 'HD', 'TRV', 'DIS', 'UTX', 'UNH', 'VZ', 'V',
+        'WMT']
     }
   }
 
   handleFilterChange = (event) => {
     const filterValue = event.target.value
-    this.setState((prevState, props) => {
-      const filteredTickers = this.state.dowTickers(fruit =>
-        fruit.toLocaleLowerCase().includes(filterValue.toLocaleLowerCase()))
-      let otherFruityBoys = props.fruits.filter(fruit =>
-        !fruit.toLocaleLowerCase().includes(filterValue.toLocaleLowerCase()))
-      console.log(otherFruityBoys)
-      return {
-        fruitsToDisplay: filteredFruitList,
-        filterValue: filterValue
+    let tickers = this.state.dowTickers
+    let newTickers = []
+
+    for (let i = 0; i < tickers.length; i++) {
+      if (tickers[i].includes(filterValue.toUpperCase())) {
+        newTickers.push(tickers[i])
       }
+    }
+    this.setState({
+      dowTickers: newTickers
     })
+    this.findCompanies()
   }
 
   async findCompanies() {
@@ -111,7 +113,11 @@ class App extends Component {
       <div className="App" >
         <Header />
         <div class="container">
-          <input type="text" placeholder="Search..." />
+          <input
+            type="text"
+            placeholder="Search..."
+            onChange={this.handleFilterChange}
+          />
           <div class="search"></div>
         </div>
         <Route exact path="/" render={(props) =>
