@@ -9,13 +9,13 @@ https://www.youtube.com/watch?v=WIrWyr3HgXI
 
 ### Wireframes
 
-![Desktop Landing](https://imgur.com/a/7dyEwuo)
+![Desktop Landing](https://i.imgur.com/U3oiNU7.png)
 
 - Desktop Landing
 
 <br>
 
-![Desktop Hero](https://i.imgur.com/gSzNOJt.png)
+![Desktop Hero](https://i.imgur.com/cSFd1ZJ.png)
 
 - Desktop Hero
 
