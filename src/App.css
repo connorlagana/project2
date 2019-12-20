@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
 }
 html, body {
   width: 100%;
@@ -142,7 +143,7 @@ header {
 
 #title {
   color: white;
-  font-family: 'Quicksand', sans-serif;
+  
   font-weight: 900;
 }
 
@@ -159,36 +160,37 @@ header {
 
 #sector {
   display: flex;
-  padding-left: 300px;
-  color: rgb(100, 100, 100);
+  padding-left: 200px;
+  padding-top: 10px;
 }
 
 #ticker {
   display: inline-block;
   font-weight: 700;
-  padding-left: 300px;
+  /* padding-left: 300px; */
 }
 #name {
   display: inline-block;
   font-weight: 300;
-  padding-left: 30px;
+  padding-left: 50px;
 }
 #price {
   display: inline-block;
   font-weight: 700;
-  padding-left: 30px;
+  /* padding-left: 30px; */
 }
 
 #change {
   display: inline-block;
   font-weight: 300;
-  padding-left: 30px;
+  /* padding-left: 30px; */
 }
 
 #desc {
   font-weight: 300;
   padding-left: 200px;
   padding-right: 200px;
+  padding-top: 10px;
 }
 
 .nav li {
@@ -210,3 +212,26 @@ header {
   padding: 0;
 }
 
+#top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 20px;
+}
+
+#about {
+  padding-left: 200px;
+  padding-top: 10px;
+}
+#ceo {
+  padding-left: 200px;
+  padding-top: 10px;
+}
+
+@media (max-width: 600px) {
+  * {
+    /* background-color: aqua; */
+    /* padding-left: 0; */
+  }
+
+}

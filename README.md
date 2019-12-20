@@ -9,7 +9,7 @@ https://www.youtube.com/watch?v=WIrWyr3HgXI
 
 ### Wireframes
 
-![Desktop Landing](https://i.imgur.com/eqoIUwS.png)
+![Desktop Landing](https://imgur.com/a/7dyEwuo)
 
 - Desktop Landing
 

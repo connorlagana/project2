@@ -61,6 +61,7 @@ class StockPage extends Component {
       shortDesc: res.data.short_description,
       longDesc: res.data.long_description,
       ceo: res.data.ceo,
+      wiki: `https://en.wikipedia.org/wiki/${res.data.ceo}`,
       sector: res.data.sector,
       employees: res.data.employees,
       exchange: res.data.stock_exchange,
@@ -77,7 +78,7 @@ class StockPage extends Component {
           }
         ]
       },
-      change: changeIn * 100,
+      change: Math.round(changeIn * 100),
       pieChartData: {
         labels: analLabels,
         datasets: [
@@ -94,7 +95,7 @@ class StockPage extends Component {
           }
         ]
       },
-      buyRating: (buys / total) * 100
+      buyRating: Math.round((buys / total) * 100)
     })
   }
 
@@ -107,11 +108,12 @@ class StockPage extends Component {
   render() {
     return (
       <div>
-        <p id='sector'>Sector: {this.state.sector}</p>
-        <p id='ticker'>{this.state.ticker}</p>
-        <p id='name'>{this.state.name}</p>
-        <p id='price'>${this.state.price}</p>
-        <p id='change'>{this.state.timeChange}: {this.state.change}%</p>
+        <div id='top'>
+          <p id='ticker'>{this.state.ticker}</p>
+          <p id='name'>{this.state.name}</p>
+          <p id='price'>${this.state.price}</p>
+          <p id='change'>{this.state.timeChange}: {this.state.change}%</p>
+        </div>
         <LineChart
           chartData={this.state.chartData}
         />
@@ -119,7 +121,10 @@ class StockPage extends Component {
           pieChartData={this.state.pieChartData}
         />
 
-        <p id='ceo'>{this.state.ceo}</p>
+        <a href={this.state.wiki} id='ceo'>CEO: {this.state.ceo}</a>
+        <p id='ceo'>Buy Rating: {this.state.buyRating}%</p>
+        <p id='ceo'>Exchange: {this.state.exchange}</p>
+        <p id='sector'>Sector: {this.state.sector}</p>
 
         <Route exact path="/:ticker" render={(props) =>
           <Link to={`/${this.state.ticker}/options`}>
@@ -137,7 +142,7 @@ class StockPage extends Component {
         <h3 id="about">About</h3>
         <p id='desc'>Short: {this.state.shortDesc}</p>
         <p id='desc'>Long: {this.state.longDesc}</p>
-        <p>{this.state.buyRating}%</p>
+
 
 
       </div >
