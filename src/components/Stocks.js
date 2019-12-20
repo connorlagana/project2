@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Bar, Line, Pie } from 'react-chartjs-2'
+import { Line, Pie } from 'react-chartjs-2'
 
 function Stocks(props) {
   return (
