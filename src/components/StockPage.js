@@ -16,6 +16,10 @@ class StockPage extends Component {
       longDesc: '',
       ceo: '',
       industry: '',
+      address: '',
+      city: '',
+      zipcode: '',
+      state: '',
       employees: '',
       exchange: '',
       price: '',
@@ -63,10 +67,10 @@ class StockPage extends Component {
       ceo: res.data.ceo,
       wiki: `https://en.wikipedia.org/wiki/${res.data.ceo}`,
       sector: res.data.sector,
-      address: res.hq_address1,
-      city: res.hq_address_city,
-      zipcode: res.hq_address_postal_code,
-      state: res.hq_state,
+      address: res.data.hq_address1,
+      city: res.data.hq_address_city,
+      zipcode: res.data.hq_address_postal_code,
+      state: res.data.hq_state,
       employees: res.data.employees,
       exchange: res.data.stock_exchange,
       price: realtimeRes.data.last_price,
@@ -129,7 +133,8 @@ class StockPage extends Component {
           <p>Buy Rating: {this.state.buyRating}%</p>
           <p>Exchange: {this.state.exchange}</p>
           <p>Sector: {this.state.sector}</p>
-          <p>employees: {this.state.sector}</p>
+          <p>Employees: {this.state.employees.toLocaleString('en')}</p>
+          <p>Address: {this.state.address} - {this.state.city}, {this.state.state}, {this.state.zipcode}</p>
         </div>
 
         <Route exact path="/:ticker" render={(props) =>

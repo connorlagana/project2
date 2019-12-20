@@ -191,10 +191,12 @@ header {
   justify-content: center;
   width: 60px;
   cursor: pointer;
-  border-radius: 5px
+  
+  
 }
 .nav ul :hover {
   background-color: rgb(190, 190, 190);
+  border-radius: 3px;
 }
 
 .nav ul {
@@ -202,7 +204,7 @@ header {
   display: flex;
   flex-direction: row;
   margin: 0;
-  padding: 0;
+  padding: 15px;
 }
 
 #top {

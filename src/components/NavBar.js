@@ -8,6 +8,7 @@ const NavBar = () => {
         <Link to={`/`}>
           <li>Home</li>
         </Link>
+        <a href='https://www.youtube.com/watch?v=WIrWyr3HgXI'>Are you silly?</a>
       </ul >
     </div >
   )
