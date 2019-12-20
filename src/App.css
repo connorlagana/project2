@@ -154,14 +154,7 @@ header {
   justify-content: flex-end;
 }
 
-#lineGraph {
-
-}
-
-#sector {
-  display: flex;
-  padding-left: 200px;
-  padding-top: 10px;
+#pieGraph {
 }
 
 #ticker {
@@ -190,7 +183,7 @@ header {
   font-weight: 300;
   padding-left: 200px;
   padding-right: 200px;
-  padding-top: 10px;
+  padding-bottom: 20px;
 }
 
 .nav li {
@@ -223,15 +216,39 @@ header {
   padding-left: 200px;
   padding-top: 10px;
 }
-#ceo {
+#data {
   padding-left: 200px;
   padding-top: 10px;
+}
+
+footer {
+  padding: 60px;
+  padding-left: 200px;
+  font-size: 14px;
+  color: white;
+  background-color: #151515;
 }
 
 @media (max-width: 600px) {
   * {
     /* background-color: aqua; */
     /* padding-left: 0; */
+  }
+  #about {
+    padding-left: 10px;
+    padding-top: 10px;
+  }
+  #data {
+    padding-left: 10px;
+    padding-top: 10px;
+  }
+  #desc {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+  }
+  #lineGraph {
+    height: 2000px;
   }
 
 }
