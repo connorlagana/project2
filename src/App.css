@@ -231,6 +231,29 @@ footer {
   background-color: #151515;
 }
 
+@media (max-width: 300px) {
+  * {
+    /* background-color: aqua; */
+    /* padding-left: 0; */
+  }
+  #about {
+    padding-left: 5px;
+    padding-top: 5px;
+  }
+  #data {
+    padding-left: 5px;
+    padding-top: 5px;
+  }
+  #desc {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+  }
+  #lineGraph {
+    height: 2000px;
+  }
+
+}
 @media (max-width: 600px) {
   * {
     /* background-color: aqua; */
@@ -248,6 +271,29 @@ footer {
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 10px;
+  }
+  #lineGraph {
+    height: 2000px;
+  }
+
+}
+@media (max-width: 800px) {
+  * {
+    /* background-color: aqua; */
+    /* padding-left: 0; */
+  }
+  #about {
+    padding-left: 15px;
+    padding-top: 15px;
+  }
+  #data {
+    padding-left: 15px;
+    padding-top: 15px;
+  }
+  #desc {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
   }
   #lineGraph {
     height: 2000px;
