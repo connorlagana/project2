@@ -22,7 +22,7 @@ function Stocks(props) {
               data={stock.anal}
               height={50}
             />
-
+            
           </div>
         )
       }

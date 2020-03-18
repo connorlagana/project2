@@ -1,7 +1,6 @@
 # **sendit**
 
 ### Overview
-https://www.youtube.com/watch?v=WIrWyr3HgXI
 
 **sendit™** is a financial analysis website used to scroll news articles, favorite stocks, view news and data for specific stocks, and vote on news articles.  **sendit™** will be using two to three API's for these functionalities.
 
